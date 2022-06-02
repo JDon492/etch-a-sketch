@@ -14,18 +14,22 @@
     <div class="etch">
         <div class="content">
             <div class="board"></div>
-            <div class="etch-buttons">
-                <input id = "rgbSelect" type = "color" value = "#000000" />
-                <button onclick = "changeMode('color')">Color</button>
-                <button onclick = "changeMode('eraser')">Eraser</button>
-                <button onclick = "changeMode('random')">Random</button>
-                <button onclick = "resetBoard()">Reset</button>
-            </div>
-            <div class="size-change">
-                <div>
-                    <label for="grid-size">Grid-Size</label>
-                    <input type="range" value="16" min="1" max="100" oninput="this.nextElementSibling.value = this.value" onchange="gridSlider(this.value)">
-                    <output class = "grid-slider">16</output>
+            <div class="settings">
+                <div class="etch-buttons">
+                    <div class="rgb">
+                        <input id = "rgbSelect" type = "color" value = "#000000" />
+                    </div>
+                    <button class = "colorBtn" onclick = "changeMode('color')">Color</button>
+                    <button class = "eraserBtn" onclick = "changeMode('eraser')">Eraser</button>
+                    <button class = "randomBtn" onclick = "changeMode('random')">Random</button>
+                    <button class = "resetBtn" onclick = "resetBoard()">Reset</button>
+                </div>
+                <div class="size-change">
+                    <div>
+                        <label for="grid-size">Grid-Size</label>
+                        <input type="range" value="16" min="1" max="100" oninput="this.nextElementSibling.value = this.value" onchange="gridSlider(this.value)">
+                        <output class = "grid-slider">16</output>
+                    </div>
                 </div>
             </div>
         </div>
