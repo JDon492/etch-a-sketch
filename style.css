@@ -13,6 +13,7 @@ h1 {
     color: antiquewhite;
     font-size: 4rem;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    opacity: .8;
 }
 
 .board {
@@ -21,3 +22,6 @@ h1 {
     display: grid;
 }
 
+.box {
+    user-select: none;
+}
