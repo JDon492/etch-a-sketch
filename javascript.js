@@ -1,3 +1,7 @@
+onload = () => {
+    boardSize(16)
+}
+
 //Board Size Changer
 
 function boardSize(size) {
@@ -6,6 +10,8 @@ function boardSize(size) {
     boxes.forEach((div) => div.remove());
     board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    //Creates boxes and enters into the grid based on grid slider input
 
     for (let i = 0; i < size * size; i++) {
         let square = document.createElement("div");
@@ -16,6 +22,14 @@ function boardSize(size) {
         board.insertAdjacentElement("beforeend", square);
     }
 };
+
+//Reset Function
+
+function resetBoard() {
+    let board = document.querySelector(".board");
+    let boxes = board.querySelectorAll(".box");
+    boxes.forEach((div) => div.style.backgroundColor = "antiquewhite");
+}
 
 //Grid Slider Input
 
@@ -31,22 +45,27 @@ document.body.onmouseup = () => (mouseDown = false);
 
 //Color Functions
 
+let currentMode = "color"
+let currentColor = "#000000";
+
 function colorSquare(e) {
     if (e.type === "mouseover" && !mouseDown) return;
-    if (color === "random") {
+    if (currentMode === "random") {
         this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    } else if (currentMode === "eraser") {
+        this.style.backgroundColor = "antiquewhite";
+    } else if (currentMode === "color") {
+        this.style.backgroundColor = currentColor;
     }
-    this.style.backgroundColor = color;
 }
 
 function changeColor(selection) {
-    color = selection;
+    currentColor = selection;
 }
 
-//Reset Function
-
-function resetBoard() {
-    let board = document.querySelector(".board");
-    let boxes = board.querySelectorAll(".box");
-    boxes.forEach((div) => div.style.backgroundColor = "antiquewhite");
+function changeMode(selection) {
+    currentMode = selection;
 }
+
+const rgbSelect = document.getElementById("rgbSelect");
+rgbSelect.oninput = e => changeColor(e.target.value);
