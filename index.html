@@ -5,13 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
-    <style href = "./style.css"></style>
+    <link rel="stylesheet" href="./style.css">
     <script src= "./javascript.js" defer></script>
 </head>
 
 <body>
-    
-    
+    <h1>Etch-A-Sketch</h1>
+    <div class="etch">
+        <div class="content">
+            <div class="board"></div>
+            <div class="etch-buttons">
+                <button>Select RGB</button>
+                <button>Black</button>
+                <button>Eraser</button>
+                <button>Random</button>
+                <button>Reset</button>
+            </div>
+            <div class="size-change">
+                <div>
+                    <input type="range" id="Grid Size" name="Grid Size"
+                           min="1" max="100">
+                    <label for="volume">Grid Size</label>
+                </div>
+                <button>Confirm Size</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 
