@@ -59,6 +59,11 @@ function colorSquare(e) {
     }
 }
 
+function changeColorandMode (color,mode) { //This is for when selecting the RGB selector that it also switches mode to color
+    changeColor(color);
+    changeMode(mode);
+}
+
 function changeColor(selection) {
     currentColor = selection;
 }
@@ -68,4 +73,4 @@ function changeMode(selection) {
 }
 
 const rgbSelect = document.getElementById("rgbSelect");
-rgbSelect.oninput = e => changeColor(e.target.value);
+rgbSelect.oninput = e => changeColorandMode(e.target.value,"color")
